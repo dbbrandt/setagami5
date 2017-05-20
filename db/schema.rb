@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520122200) do
+ActiveRecord::Schema.define(version: 20170520130022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,11 +163,10 @@ ActiveRecord::Schema.define(version: 20170520122200) do
     t.index ["unlock_token"], name: "index_fae_users_on_unlock_token", unique: true
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string "name"
+  create_table "imdbs", force: :cascade do |t|
+    t.string "title"
     t.integer "imdb_id"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
