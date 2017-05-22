@@ -5,5 +5,8 @@ class Person < ApplicationRecord
     name
   end
 
+  has_fae_image :actor_image
+  
+  belongs_to :imdb
 
 end

@@ -1,6 +1,3 @@
-require 'rest-client'
-require 'json'
-
 class Imdb < ApplicationRecord
   include Fae::BaseModelConcern
 

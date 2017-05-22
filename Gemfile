@@ -35,7 +35,9 @@ gem 'slim-rails', '~> 3.1'
 # The Rails CMS
 gem 'fae-rails', '~>1.5.0'
 # Access the .env enviorment variables.
-gem dotenv-rails, '~>2.2.0'
+gem 'dotenv-rails', '~>2.2.0'
+# Restful call
+#gem 'rest-client', '~>2.0'
 
 
 group :development, :test do
