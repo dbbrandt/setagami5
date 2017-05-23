@@ -1,0 +1,326 @@
+/* Text Elements */
+
+h4.heading-2 {
+  margin-right: 56px;
+  margin-left: 0;
+  text-align: center;
+}
+
+h4.heading-4 {
+  float: left;
+  margin-top: 14px;
+  margin-left: 10px;
+  padding-right: 0;
+  padding-left: 0;
+  color: #bbbbbb;
+  text-align: center;
+}
+
+h5.Heading-3 {
+  margin-top: 24px;
+  margin-right: 10%;
+  margin-left: 10%;
+  max-width: 80%;
+  text-align: center;
+}
+
+h6.heading-3 {
+  margin-right: 25%;
+  margin-left: 25%;
+  max-width: 50%;
+  text-align: center;
+}
+
+/* Interaction Elements */
+
+input[type=text].input-2 {
+  margin: 20px 25% 1rem;
+  padding-top: 8px;
+  max-width: 50%;
+}
+
+/* Layout Elements */
+
+body > .row > [class*='small-'].column-2 {
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  min-height: 68px;
+  background-image: url('../rocket-firing.png');
+  background-attachment: scroll;
+  background-position: center center;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: 90% auto;
+  background-repeat: no-repeat;
+
+  background-blend-mode: normal;
+}
+
+
+body > .row.row-1 {
+    background-color: rgba(247, 252, 255, .58);
+}
+
+body > .row.row-2 {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  min-height: 73px;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .5) 0%, rgba(112, 205, 255, .28) 100%);
+  background-image:    -moz-linear-gradient(top, rgba(255, 255, 255, .5) 0%, rgba(112, 205, 255, .28) 100%);
+  background-image:      -o-linear-gradient(top, rgba(255, 255, 255, .5) 0%, rgba(112, 205, 255, .28) 100%);
+  background-image:         linear-gradient(180deg, rgba(255, 255, 255, .5) 0%, rgba(112, 205, 255, .28) 100%);
+  background-attachment: scroll;
+  background-position: left top;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+  background-repeat: no-repeat;
+
+  background-blend-mode: normal;
+}
+
+body > .row > [class*='small-'].column-4 {
+  padding-right: .62rem;
+}
+
+body > .row > [class*='small-'].column-5 {
+  float: none;
+  min-height: auto;
+}
+
+body > .row > [class*='small-'].column-6 {
+  min-height: auto;
+}
+
+body > .row > [class*='small-'].column-7 {
+  min-height: auto;
+}
+
+body > .row > [class*='small-'].column-8 {
+  min-height: auto;
+}
+
+body > .row > [class*='small-'].column-9 {
+  margin-left: 0;
+  min-height: auto;
+}
+
+div.responsive-picture.picture-1 {
+  min-width: 25px;
+  max-width: 50px;
+  width: 50%;
+  background-image: none;
+  background-attachment: scroll;
+  background-position: left top;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: 0 0;
+  background-repeat: no-repeat;
+
+  background-blend-mode: normal;
+}
+
+.rule.rule-1 hr {
+  border-top-width: 2px;
+  border-top-color: #70cdff;
+}
+
+div.responsive-picture.picture-2 {
+  margin-top: 2.7%;
+  margin-right: 25%;
+  margin-left: 25%;
+  max-width: 50%;
+  width: 200%;
+
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
+          align-self: auto;
+}
+
+button.button {
+  position: static;
+  left: 40%;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding: .5em;
+  max-width: none;
+  width: auto;
+  text-align: center;
+  text-indent: 4px;
+}
+
+a.responsive-picture.picture-link-1 {
+  margin-right: 10%;
+  margin-left: 90%;
+  max-width: 10%;
+}
+
+button.left-button {
+  padding-top: .5em;
+  padding-right: 1em;
+  padding-bottom: .5em;
+}
+
+button.button.left-button {
+  margin-right: 0;
+  margin-left: 70%;
+  padding-right: 1em;
+  padding-left: 1em;
+  text-align: center;
+  word-spacing: 0;
+}
+
+button.start-button {
+    float: right;
+}
+
+
+.rule.rule-2 {
+  margin-top: 0;
+  padding-top: 0;
+  width: 104.6%;
+}
+
+.rule.rule-2 hr {
+  border-top-width: 2px;
+}
+
+@media screen and (min-width: 40rem) {
+  /* Text Elements */
+
+  h4.heading-2 {
+    margin-right: 80px;
+    font-size: 36px;
+  }
+
+  h5.Heading-3 {
+    margin-left: 10%;
+  }
+
+  h6.heading-3 {
+    text-align: center;
+  }
+
+  /* Interaction Elements */
+
+  input[type=text].input-2 {
+    margin-right: 25%;
+    margin-left: 25%;
+  }
+
+  /* Layout Elements */
+
+  body > .row > [class*='small-'].column-1 {
+    display: block;
+    float: none;
+    margin-top: 0;
+  }
+
+  body > .row > [class*='small-'].column-2 {
+    margin-bottom: 0;
+    padding-bottom: 10%;
+    min-height: 50px;
+    background-attachment: scroll;
+    background-position: center center;
+    background-clip: padding-box;
+    background-origin: padding-box;
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+
+    background-blend-mode: normal;
+  }
+
+  body > .row > [class*='small-'].column-4 {
+    margin-bottom: 17px;
+  }
+
+  div.responsive-picture.picture-1 {
+    min-width: 50%;
+    max-width: 150px;
+  }
+
+  .rule.rule-1 hr {
+    border-top-width: 1px;
+    border-top-color: rgba(112, 205, 255, .46);
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-top: 11px;
+    margin-right: 25%;
+    margin-left: 25%;
+    max-width: 50%;
+  }
+
+  button.button.left-button {
+    margin-left: 80%;
+    padding-right: 1.5em;
+    padding-left: 1em;
+  }
+
+  button.button {
+    padding-right: 1em;
+  }
+
+  a.responsive-picture.picture-link-1 {
+    max-width: 5%;
+    width: 5%;
+  }
+
+  .rule.rule-2 {
+    margin-left: -15px;
+    padding-right: 0;
+    padding-left: 0;
+    width: 105%;
+  }
+
+  .rule.rule-2 hr {
+    border-top-color: rgba(112, 205, 255, .32);
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  /* Text Elements */
+
+  h4.heading-2 {
+    margin-right: 110px;
+  }
+
+  h4.heading-4 {
+    font-size: 25px;
+  }
+
+  /* Layout Elements */
+
+  body > .row > [class*='small-'].column-3 {
+    min-height: 0;
+  }
+
+  body > .row > [class*='small-'].column-2 {
+    margin-left: 32%;
+    padding-bottom: 5%;
+    min-height: 7rem;
+    background-attachment: scroll;
+    background-position: left top;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    background-blend-mode: normal;
+  }
+
+  div.responsive-picture.picture-1 {
+    width: 100%;
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-right: 25%;
+    margin-left: 25%;
+    max-width: 50%;
+  }
+}
