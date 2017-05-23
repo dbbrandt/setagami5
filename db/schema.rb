@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520130023) do
+ActiveRecord::Schema.define(version: 20170522211847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,24 @@ ActiveRecord::Schema.define(version: 20170520130023) do
     t.datetime "updated_at", null: false
     t.index ["attached_as"], name: "index_fae_images_on_attached_as"
     t.index ["imageable_type", "imageable_id"], name: "index_fae_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "fae_images_backup", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.string "name"
+    t.string "asset"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.string "alt"
+    t.string "caption"
+    t.integer "position"
+    t.string "attached_as"
+    t.boolean "on_stage"
+    t.boolean "on_prod"
+    t.integer "file_size"
+    t.boolean "required"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "fae_options", force: :cascade do |t|
@@ -179,6 +197,16 @@ ActiveRecord::Schema.define(version: 20170520130023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imdb_id"], name: "index_people_on_imdb_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.string "name"
+    t.integer "correct"
+    t.integer "answered"
+    t.integer "total"
+    t.text "quiz"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "people", "imdbs"
