@@ -3,13 +3,13 @@ class RoundsController < ApplicationController
   @@size = 2
 
   def index
-    @items = Round.all
+    @items = Round.order(id: :desc).all
   end
 
   def show
     @round = Round.find(params[:id])
     @person = Person.find(@round.quiz.split("&").first)
-    @incorrect_list = get_incorrect_list
+    @incorrect_list = incorrect_list(@round.incorrect)
   end
 
   def new
@@ -32,59 +32,42 @@ class RoundsController < ApplicationController
     @round = Round.find(params[:id])
     person = Person.find(@round.quiz.split("&").first)
 
-    done = false
-
-    # don't accept answers after the quiz is completed
-    unless @round.answered >= @round.total
-      #update the list of incorrect answers
-      incorrect_list = @round.incorrect.nil? ? [] : @round.incorrect.split("&")
-      if check_answer?(params[:actor_name], person)
-        @round.correct += 1
-      else
-        incorrect_list << person.id
-      end
-
-      @round.incorrect = incorrect_list.uniq.join("&")
-      @round.answered += 1
-      @round.save
-
-      done = next_person
-      
-      redirect_to @round unless done
+    #update the list of incorrect answers
+    if check_answer?(params[:actor_name], person)
+      @round.correct += 1
     else
-      done = true
+      # Incorrect is stored as a string concatenation of person ids
+      add_incorrect!(@round, person)
     end
 
-    redirect_to :index if done
-  end
+    @round.answered += 1
+    @round.save
 
-  def get_incorrect_list
-    return nil unless @round.incorrect
-    incorrect = @round.incorrect.split("&")
-    incorrect_list = []
-    incorrect.each { |id|
-      incorrect_list << Person.find(id)
-    }
-    incorrect_list.sort_by! {|p| p.last_name }
+    if next_person
+      redirect_to @round
+    else
+      redirect_to :index
+    end
   end
 
   def next_person
-    done = false
+    return true unless @round.quiz
 
-    #get the next entry (first of the array)
     quiz = @round.quiz.split("&")
-    #delete from the array so the next person will be first on subsequent calls
-    #save the quiz in the database
-    #Leave one person in the quiz so the last page continues to display correctly
+
+    more = true
+
+    # Delete the current person from the array so the next person will be first on subsequent calls
     if (quiz.second)
       quiz.delete(quiz.first)
       @round.quiz = quiz.join("&")
     else
-      done = true
+      quiz.delete(quiz.first)
+      more = false
     end
     @round.save
-    
-    return done
+
+    return more
   end
 
   def check_answer?(answered, actual)
@@ -92,5 +75,25 @@ class RoundsController < ApplicationController
     result
   end
 
+  private
 
+  def incorrect_list(str)
+    return unless str
+    list = []
+    ids = str.split("&") 
+    ids.each { |person_id|
+      list << Person.find(person_id)
+    }
+    list.sort_by! {|p| p.last_name }
+  end
+
+  def add_incorrect!(round, person)
+    return unless round && person
+
+    if round.incorrect.nil?
+      round.incorrect = person.id
+    else
+      round.incorrect += "&#{person.id}" if person.id
+    end
+  end
 end
