@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  root "rounds#index"
+  root 'rounds#index'
 
-  resources :people
+  get '/index' => 'rounds#index'
+
   resources :rounds
 
   namespace :admin do
