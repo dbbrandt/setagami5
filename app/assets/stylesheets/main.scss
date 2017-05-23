@@ -48,7 +48,7 @@ body > .row > [class*='small-'].column-2 {
   padding-bottom: 0;
   padding-left: 0;
   min-height: 68px;
-  background-image: url('../rocket-firing.png');
+  background-image: asset_url('rocket-firing.png');
   background-attachment: scroll;
   background-position: center center;
   background-clip: border-box;
