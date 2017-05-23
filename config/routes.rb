@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  root "rounds#index"
+
+  resources :people
+  resources :rounds
+
   namespace :admin do
+    resources :rounds
     resources :imdbs
     resources :people
   end
