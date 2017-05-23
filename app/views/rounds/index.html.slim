@@ -8,13 +8,24 @@ main.content
     thead
       tr
         th Name
+        th Count
+        th incorrect
+        th Complete %
+        th Correct %
         th.-action-wide Modified
 
     tbody
       - if @items.present?
         - @items.each do |item|
           tr id=fae_sort_id(item)
-            td = link_to item.fae_display_field, edit_admin_round_path(item)
+            - if item.answered < item.total
+              td = link_to item.fae_display_field, item
+            - else
+              td = "#{item.fae_display_field} (completed)"
+            td = item.total
+            td = item.incorrect_count
+            td = item.percent_complete
+            td = item.percent_correct
             td = fae_date_format item.updated_at
       - else
         tr: td colspan="2" No rounds found
