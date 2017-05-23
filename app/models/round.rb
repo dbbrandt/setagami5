@@ -5,8 +5,17 @@ class Round < ApplicationRecord
     name
   end
 
-  def ratio
-    @answered > 0 ? (@correct * 100) / @answered : 100
+  def percent_correct
+    answered > 0 ? (correct * 100) / answered : 100
+  end
+
+  def percent_complete
+    100 * answered / total
+  end
+
+  def incorrect_count
+    return 0 unless incorrect
+    incorrect.split("&").size
   end
 
 end
