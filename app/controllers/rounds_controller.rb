@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
 
-  @@size = 2
+  @@size = 100
 
   def index
     @items = Round.order(id: :desc).all
@@ -16,12 +16,13 @@ class RoundsController < ApplicationController
     @round = Round.new
     @round.correct = 0
     @round.answered = 0
-    @round.total = @@size
+    size = params[:size]? params[:size] : @@size
+    @round.total = size
     @round.name = "Round #{Round.count+1}"
     people = []
     # Convert the array of People to an array of id's
-    Person.all.limit(@@size).shuffle.each { |p| people << p.id }
-    @round.quiz = people.join('&')
+    Person.all.shuffle.each { |p| people << p.id }
+    @round.quiz = people[0..size].join('&')
     @round.save
 
     redirect_to @round
