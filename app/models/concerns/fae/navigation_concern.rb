@@ -27,6 +27,7 @@ module Fae
       [
         item('People', path: admin_people_path),
         item('Imdbs', path: admin_imdbs_path),
+        item('Rounds', path: admin_rounds_path),
         # scaffold inject marker
       ]
     end
