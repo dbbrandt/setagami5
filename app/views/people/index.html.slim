@@ -1,0 +1,40 @@
+== render 'shared/heading'
+
+== render 'shared/stats_rocket'
+.row
+  .columns.small-12.column-1
+    .rule.rule-2
+      hr
+
+    .responsive-picture.picture-2
+      picture
+        img alt="Adam Sandler" srcset="#{asset_path('AdamSandler.jpg')}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+.row
+  .columns.small-12
+    h5.Heading-3 Actor Top Movies...
+
+.row
+  .columns.small-12
+    .rule.rule-1
+      hr
+
+.row
+  .columns.mall-12.column-4
+    h6.heading-3 What is this actor's name?
+    input.input-2 value="" name="text-name" type="text"
+
+.row
+  .columns.small-2.column-5
+  .columns.small-4.column-6
+  .columns.small-6.column-9
+    button type="button" class="button left-button" Skip
+  .columns.small-6.column-8
+    button type="button" class="button" Answer
+  .columns.small-4.volumn-7
+
+.row
+  .columns.small-12
+    a.responsive-picture.picture-link-1 href="#"
+      picture
+        img alt="Placeholder Picture" srcset="icon-home.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
