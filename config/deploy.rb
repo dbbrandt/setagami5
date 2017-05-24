@@ -2,7 +2,7 @@
 lock "3.8.1"
 
 set :application, "setagami5"
-set :repo_url, "https://github.com/dbbrandt/setagami5.git"
+set :repo_url, "git@github.com:dbbrandt/setagami5.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -12,6 +12,9 @@ set :deploy_to, "home/precidix/srv/setagami5"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
+
+# Random issues with deploy failing due to security problems is resolved by this line.
+set :ssh_options,     { :forward_agent => true }
 
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
@@ -43,7 +46,7 @@ end
 
 # Server name for nginx, space separated values
 # No default value
-set :nginx_domains, "www.precidix.com"
+set :nginx_domains, "www.setagami.com"
 
 # Redirected domains, all these will have a permanent redirect to the first of :nginx_domains
 # No default value
