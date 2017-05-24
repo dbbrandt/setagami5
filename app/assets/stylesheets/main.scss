@@ -24,6 +24,24 @@ h5.Heading-3 {
   text-align: center;
 }
 
+h6.heading-1 {
+  margin-top: 15px;
+  padding-top: 0;
+  border: .0625rem solid rgba(56, 123, 161, .32);
+  background-color: rgba(137,235,138,0.37);
+  text-align: center;
+}
+
+h6.heading-1.correct {
+  background-color: rgba(137,235,138,0.37);
+}
+
+h6.heading-1.incorrect {
+  background-color: rgba(235, 137, 145, .37);
+}
+
+
+
 h6.heading-3 {
   margin-right: 25%;
   margin-left: 25%;
@@ -188,6 +206,17 @@ button.start-button {
 
 .rule.rule-2 hr {
   border-top-width: 2px;
+}
+
+.flash-message {
+  border-style: solid;
+  border-left-width: 3px;
+  margin: 0 auto;
+  padding: 20px;
+  width: calc(100% - 60px);
+  border-color: #b75553;
+  background: #f6cfcf;
+  color: #b75553;
 }
 
 @media screen and (min-width: 40rem) {

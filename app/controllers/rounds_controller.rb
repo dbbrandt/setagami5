@@ -36,9 +36,12 @@ class RoundsController < ApplicationController
     #update the list of incorrect answers
     if check_answer?(params[:actor_name], person)
       @round.correct += 1
+      flash[:correct] = "Correct! #{person.name}"
+      msg_type = :correct
     else
       # Incorrect is stored as a string concatenation of person ids
       add_incorrect!(@round, person)
+      flash[:incorrect] = "Incorrect: #{person.name}"
     end
 
     @round.answered += 1

@@ -23,8 +23,6 @@
       h6.heading-3 What is this actor's name?
       input.input-2 value="" name="actor_name" type="text"
   .row
-    .columns.small-2.column-5
-    .columns.small-4.column-6
     .columns.small-6.column-9
       button.button.left-button type="submit" name="skip" value="#{@person.id}" Skip
     .columns.small-6.column-8
@@ -32,6 +30,9 @@
     .columns.small-4.volumn-7
 
 .row
+  .columns.small-6.medium-offset-3.medium-6.small-offset-3
+    - flash.each do |name, msg|
+      h6.heading-1 class="#{name}" #{msg}
   .columns.small-12
     a.responsive-picture.picture-link-1 href="#{index_path}"
       picture
