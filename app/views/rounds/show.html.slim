@@ -19,9 +19,15 @@
 
 = form_tag(@round, method: :put)
   .row
+<<<<<<< Updated upstream
     .columns.mall-12.column-4
       h6.heading-3 What is this actor's name?
       input.input-2 value="" name="actor_name" type="text"
+=======
+    .columns.small-12.column-4
+      h2.heading-2 What is this actor's name?
+      input.input-2 value="" name="actor_name" type="text" autofocus=""
+>>>>>>> Stashed changes
   .row
     .columns.small-6.column-9
       button.button.left-button type="submit" name="skip" value="#{@person.id}" Skip
