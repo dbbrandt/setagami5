@@ -1,4 +1,3 @@
-== render 'shared/stats_rocket'
 .row
   .columns.small-12.column-1
     .rule.rule-2
@@ -9,8 +8,8 @@
         img alt="#{@person.name}" srcset="#{@person.actor_image.asset.url}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
 .row
-  .columns.small-12
-    h5.Heading-3 Actor Top Movies...
+  .coumns.small-8.small-offset-2
+    h2.heading-1 Actor Top Movies...
 
 .row
   .columns.small-12
@@ -19,21 +18,20 @@
 
 = form_tag(@round, method: :put)
   .row
-    .columns.mall-12.column-4
-      h6.heading-3 What is this actor's name?
+    .columns.small-12.column-4
+      h2.heading-2 What is this actor's name?
       input.input-2 value="" name="actor_name" type="text"
   .row
     .columns.small-6.column-9
-      button.button.left-button type="submit" name="skip" value="#{@person.id}" Skip
+      button.button.left-button type="submit" name="answer" value="#{@person.id}" Answer
     .columns.small-6.column-8
-      button.button type="submit"name="answer" value="#{@person.id}" Answer
-    .columns.small-4.volumn-7
+      button.button type="submit"name="skip" value="#{@person.id}" Skip
 
 .row
-  .columns.small-6.medium-offset-3.medium-6.small-offset-3
+  .columns.small-10.medium-offset-1.small-10.small-offset-1
     - flash.each do |name, msg|
-      h6.heading-1 class="#{name}" #{msg}
-  .columns.small-12
+      h2.heading-1 class="#{name}" #{msg}
+  .columns.small-1
     a.responsive-picture.picture-link-1 href="#{index_path}"
       picture
         img alt="Home Icon" srcset="#{asset_path('icon-home.png')}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
