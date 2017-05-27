@@ -1,6 +1,12 @@
+require 'fuzzystringmatch'
+
 class RoundsController < ApplicationController
 
   @@size = 100
+
+  @@correct_percent = 0.85
+
+  @@jarow = FuzzyStringMatch::JaroWinkler.create( :native )
 
   def index
     @items = Round.order(id: :desc).all
@@ -33,16 +39,22 @@ class RoundsController < ApplicationController
     @round = Round.find(params[:id])
     person = Person.find(@round.quiz.split("&").first)
 
+    answer = params[:actor_name]
+    score = check_answer?(answer, person.name)
+    correct = score >= @@correct_percent
+    @round.answers.build(answer: answer, correct_answer: person.name, score: score, correct: correct)
+
+    percent = (score * 100).round(2)
     #update the list of incorrect answers
-    if check_answer?(params[:actor_name], person)
+    if correct
       @round.correct += 1
-      flash[:correct] = "Correct! #{person.name}"
+      flash[:correct] = "Correct! (#{percent}%) #{answer} for #{person.name} "
       msg_type = :correct
     else
       # Incorrect is stored as a string concatenation of person ids
       add_incorrect!(@round, person)
       flash_type = params[:skip]? 'Skipped':'Incorrect'
-      flash[:incorrect] = "#{flash_type}: #{person.name}"
+      flash[:incorrect] = "#{flash_type}: (#{percent}%)#{answer} for #{person.name}"
     end
 
     @round.answered += 1
@@ -76,11 +88,19 @@ class RoundsController < ApplicationController
   end
 
   def check_answer?(answered, actual)
-    result = (answered == actual.name)
-    result
+    match = (normalize_string(answered) == normalize_string(actual))
+    match ? 1 : fuzzy_match(answered, actual)
+  end
+
+  def fuzzy_match(answered, actual)
+    @@jarow.getDistance( answered, actual).round(3)
   end
 
   private
+
+  def normalize_string(str)
+    str.downcase.gsub(/\s+/, "")
+  end
 
   def incorrect_list(str)
     return unless str
