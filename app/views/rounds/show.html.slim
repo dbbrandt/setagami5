@@ -1,4 +1,8 @@
 .row
+  .coumns.small-8.small-offset-2
+    .coumns.small-10.small-offset-1
+      h6.heading-1 Answers: #{@round.answers.size} &nbsp;&nbsp;Score: #{@round.percent_correct}%
+.row
   .columns.small-12.column-1
     .rule.rule-2
       hr
@@ -28,10 +32,11 @@
       button.button type="submit"name="skip" value="#{@person.id}" Skip
 
 .row
-  .columns.small-10.medium-offset-1.small-10.small-offset-1
-    - flash.each do |name, msg|
-      h2.heading-1 class="#{name}" #{msg}
-  .columns.small-1
-    a.responsive-picture.picture-link-1 href="#{index_path}"
-      picture
-        img alt="Home Icon" srcset="#{asset_path('icon-home.png')}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  .columns.medium-12.small-12
+    .columns.column-1.medium-10.small-10
+      - flash.each do |name, msg|
+        h2.heading-1 class="#{name}" #{msg}
+    .columns.column-11.medium-2.small-2
+      a.responsive-picture.picture-link-1 href="#{index_path}"
+        picture
+          img alt="Home Icon" srcset="#{asset_path('icon-home.png')}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
