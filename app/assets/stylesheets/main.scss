@@ -320,10 +320,11 @@ button.start-button {
     padding-right: 1em;
   }
 
-  a.responsive-picture.picture-link-1 {
-    max-width: 100%;
-    width:95%;
+  a.responsive-picture.picture-link-1 img {
+    width:100px;
+    margin-right: 0px;
   }
+
 
   .rule.rule-2 {
     margin-left: -15px;
