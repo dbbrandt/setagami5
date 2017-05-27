@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   get '/index' => 'rounds#index'
 
-  resources :rounds
+  resources :rounds do
+    resources :answers
+  end
 
   namespace :admin do
+    resources :answers
     resources :rounds
     resources :imdbs
     resources :people
