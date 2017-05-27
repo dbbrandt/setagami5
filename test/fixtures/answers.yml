@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  answer: MyString
+  correct_answer: MyString
+  score: 1.5
+  correct: false
+  round: one
+
+two:
+  answer: MyString
+  correct_answer: MyString
+  score: 1.5
+  correct: false
+  round: two

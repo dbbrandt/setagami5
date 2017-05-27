@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524200923) do
+ActiveRecord::Schema.define(version: 20170526154703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "answer"
+    t.string "correct_answer"
+    t.float "score"
+    t.boolean "correct"
+    t.bigint "round_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["round_id"], name: "index_answers_on_round_id"
+  end
 
   create_table "fae_changes", force: :cascade do |t|
     t.integer "changeable_id"
@@ -214,5 +225,6 @@ ActiveRecord::Schema.define(version: 20170524200923) do
     t.string "version"
   end
 
+  add_foreign_key "answers", "rounds"
   add_foreign_key "people", "imdbs"
 end
