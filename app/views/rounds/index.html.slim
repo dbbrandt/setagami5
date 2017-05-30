@@ -1,7 +1,7 @@
 .row.row-1
   .columns
     a href="#{new_round_path}"
-      button.button.start-button type="button" Start Round
+      button.button.start-button type="button" New Round
 
 main.content
   table.js-sort-column
@@ -13,19 +13,18 @@ main.content
         th Complete %
         th Correct %
         th.-action-wide Modified
+        th.-action data-sorter="false"
 
     tbody
       - if @items.present?
         - @items.each do |item|
           tr id=fae_sort_id(item)
-            - if item.answered < item.total
-              td = link_to item.fae_display_field, item
-            - else
-              td = "#{item.fae_display_field} (completed)"
+            td = link_to "#{item.fae_display_field} #{"Completed" if item.answered >= item.total}", round_answers_path(round_id: item.id)
             td = item.total
             td = item.incorrect_count
             td = item.percent_complete
             td = item.percent_correct
             td = fae_date_format item.updated_at
+            td = link_to image_tag(asset_path("play.png"),:class => 'play-icon'), item
       - else
-        tr: td colspan="2" No rounds found
+        tr: td colspan="6" No rounds found

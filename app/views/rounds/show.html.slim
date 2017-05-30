@@ -1,7 +1,8 @@
 .row
   .columns.small-2
   .columns.small-4.small-offset-3.medium-2.medium-offset-4
-      h4.heading-1 Answers: #{@round.answers.size}
+      h4.heading-1
+        = link_to "Answers: #{@round.answers.size}", round_answers_path(round_id: @round.id)
   .columns.small-4.medium-2
       h4.heading-1 Score: #{@round.percent_correct}%
   .columns.small-2
@@ -31,14 +32,11 @@
   .row
     .cloums.small-12
       input.input-2 value="" name="actor_name" type="text" autofocus=""
-    .columns.small-12.column-4
-      h2.heading-2 What is this actor's name?
-      input.input-2 value="" name="actor_name" type="text" autofocus=""
   .row
     .columns.small-6.column-9
       button.button.left-button type="submit" name="answer" value="#{@person.id}" Answer
     .columns.small-6.column-8
-      button.button type="submit"name="skip" value="#{@person.id}" Skip
+      button.button.right-button type="submit"name="skip" value="#{@person.id}" Skip
 
 .row
   .columns.medium-12.small-12
