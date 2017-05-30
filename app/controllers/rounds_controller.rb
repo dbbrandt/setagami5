@@ -25,10 +25,8 @@ class RoundsController < ApplicationController
     size = params[:size]? params[:size] : @@size
     @round.total = size
     @round.name = "Round #{Round.count+1}"
-    people = []
     # Convert the array of People to an array of id's
-    Person.all.shuffle.each { |p| people << p.id }
-    @round.quiz = people[0..size].join('&')
+    @round.quiz = Person.all.shuffle[0..size-1].map(&:id).join('&')
     @round.save
 
     redirect_to @round
