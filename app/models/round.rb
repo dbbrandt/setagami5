@@ -6,16 +6,21 @@ class Round < ApplicationRecord
   end
 
   def percent_correct
-    answered > 0 ? (correct * 100) / answered : 100
+    answers.size > 0 ? (correct_count * 100) / answers.size : 0
   end
 
   def percent_complete
-    100 * answered / total
+    100 * answers.size / total
   end
 
   def incorrect_count
-    return 0 unless incorrect
-    incorrect.split("&").size
+    answers.select {|a| a.correct == false}.count
   end
+
+  def correct_count
+    answers.select {|a| a.correct == true}.count
+  end
+
+  has_many :answers, :dependent => :destroy
 
 end

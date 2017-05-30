@@ -5,15 +5,26 @@ main.content
     thead
       tr
         th Name
-        th.-action-wide Modified
+        th Total
+        th Correct
+        th Incorrect
+        th Completed
+        th Score
         th.-action data-sorter="false"
-
+        th.-action data-sorter="false"
+        th.-action-wide Modified
     tbody
       - if @items.present?
         - @items.each do |item|
           tr id=fae_sort_id(item)
-            td = link_to item.fae_display_field, edit_admin_round_path(item)
-            td = fae_date_format item.updated_at
+            td = link_to item.fae_display_field, admin_answers_path(round_id: item.id)
+            td = item.total
+            td = item.correct_count
+            td = item.incorrect_count
+            td = "#{item.percent_complete}%"
+            td = "#{item.percent_correct}%"
+            td = fae_edit_button item, edit_admin_round_path(item)
             td = fae_delete_button item
+            td = fae_date_format item.updated_at
       - else
-        tr: td colspan="3" No items found
+        tr: td colspan="9" No items found
