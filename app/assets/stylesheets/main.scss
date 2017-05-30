@@ -24,7 +24,7 @@ h5.Heading-3 {
   text-align: center;
 }
 
-h6.heading-1 {
+h5.heading-1 {
   margin-top: 15px;
   padding-top: 0;
   border: .0625rem solid rgba(56, 123, 161, .32);
@@ -33,28 +33,30 @@ h6.heading-1 {
 }
 
 
-h2.heading-1 {
+h3.heading-1 {
   margin-top: 24px;
   margin-right: 10%;
   margin-left: 10%;
   max-width: 80%;
   text-align: center;
+  line-height: 0.4;
 }
 
-h2.heading-1.correct {
+h4.heading-1.correct {
   background-color: rgba(137,235,138,0.37);
   max-width: 100%;
   margin-top: 20px;
   padding-left: 2%;
+  line-height: 1.4;
 }
 
-h2.heading-1.incorrect {
+h4.heading-1.incorrect {
   background-color: rgba(235, 137, 145, .37);
   max-width: 100%;
   margin-top: 20px;
   padding-left: 2%;
+  line-height: 1.4;
 }
-
 
 h2.heading-2 {
   margin-right: 25%;
@@ -244,6 +246,10 @@ button.start-button {
 @media screen and (min-width: 40rem) {
   /* Text Elements */
 
+  h4.heading-1 {
+    line-height: 1.4;
+  }
+
   h4.heading-2 {
     margin-right: 80px;
     font-size: 36px;
@@ -263,7 +269,6 @@ button.start-button {
   input[type=text].input-2 {
     margin-right: 25%;
     margin-left: 25%;
-    font-size: 36px;
   }
 
   /* Layout Elements */
@@ -337,9 +342,17 @@ button.start-button {
     border-top-color: rgba(112, 205, 255, .32);
   }
 }
+div.responsive-picture.picture-2 {
+  margin-right: 33%;
+  margin-left: 33%;
+  max-width: 33%;
+}
 
 @media screen and (min-width: 64rem) {
   /* Text Elements */
+  h2.heading-2 {
+    font-size: 25px;
+  }
 
   h4.heading-2 {
     margin-right: 110px;
@@ -373,9 +386,4 @@ button.start-button {
     width: 100%;
   }
 
-  div.responsive-picture.picture-2 {
-    margin-right: 25%;
-    margin-left: 25%;
-    max-width: 50%;
-  }
 }
