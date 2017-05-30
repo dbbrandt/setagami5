@@ -1,0 +1,32 @@
+.row.row-1
+  .columns
+    a href="#{round_path(@round.id)}"
+      button.button.start-button type="button" Resume Round
+
+main.content
+  h3 #{@round.fae_display_field} &nbsp;&nbsp;&nbsp;&nbsp; Answer Count: #{@items.size} &nbsp;&nbsp;&nbsp;Score: #{@round.percent_correct}%
+  table.js-sort-column
+    thead
+      tr
+        th #
+        th Answer
+        th Correct Answer
+        th Score
+        th Correct
+        th.-action-wide Modified
+
+    tbody
+      - if @items.present?
+        - @items.each_with_index do |item, index|
+          tr id=fae_sort_id(item)
+            td = index + 1
+            - if item.fae_display_field.empty?
+              td = 'Skipped'
+            - else
+              td = item.fae_display_field
+            td = item.correct_answer
+            td = item.score
+            td = item.correct
+            td = item.updated_at
+      - else
+        tr: td colspan="5" No items found

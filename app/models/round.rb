@@ -21,6 +21,6 @@ class Round < ApplicationRecord
     answers.select {|a| a.correct == true}.count
   end
 
-  has_many :answers
+  has_many :answers, :dependent => :destroy
 
 end
