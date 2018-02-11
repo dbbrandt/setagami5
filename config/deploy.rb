@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.8.1"
+lock "3.8.2"
 
 set :application, "setagami5"
 set :repo_url, "git@github.com:dbbrandt/setagami5.git"

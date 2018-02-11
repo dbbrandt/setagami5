@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1'
+# Bundle edge 0ils instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.1.0'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use SLIM for HTML
 gem 'slim-rails', '~> 3.1'
 # The Rails CMS
-gem 'fae-rails', '~>1.5.0'
+gem 'fae-rails', '1.5.1'
 # Access the .env enviorment variables.
 gem 'dotenv-rails', '~>2.2.0'
 # Restful call
